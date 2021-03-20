@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "facebook-9e3f5": {
+      "hosting": {
+        "angular-facebook-firebase": [
+          "facebook-9e3f5"
+        ]
+      }
+    }
+  }
+}
