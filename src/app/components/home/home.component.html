@@ -1,13 +1,14 @@
 <div class="home-container">
   <div class="home__header">
     <div class="home__header__left">
-      <img mat-card-avatar src="assets/fb-head.jpg" />
+      <img mat-card-avatar src="assets/fb-head.jpg"/>
       <div class="input">
         <mat-icon class="search-icon">search_outline</mat-icon>
         <form>
-          <input placeholder="Search Facebook" type="text" />
+          <input placeholder="Search Facebook" type="text">
         </form>
       </div>
+
     </div>
     <div class="home__header__middle">
       <div class="active">
@@ -25,34 +26,38 @@
       <div>
         <mat-icon>flag</mat-icon>
       </div>
+
     </div>
     <div class="home__header__right">
       <div>
-        <img alt="" mat-card-avatar [src]="user?.avatar" />
-        <span class="name">{{ user?.firstName || "Indranil" }}</span>
+        <img
+          alt=""
+          mat-card-avatar
+          [src]="user?.avatar">
+        <span class="name">{{ user?.firstName || 'Indranil'}}</span>
       </div>
       <div>
         <mat-icon>add</mat-icon>
       </div>
 
       <div>
-        <mat-icon
-          matBadge="4"
-          matBadgeColor="primary"
-          matBadgeOverlap="false"
-          matBadgePosition="above after"
-        >
-          forum
+        <mat-icon matBadge="4"
+                  matBadgeColor="primary"
+                  matBadgeOverlap="false"
+                  matBadgePosition="above after"> forum
         </mat-icon>
       </div>
 
       <div>
-        <mat-icon matBadge="3" matBadgeColor="warn" matBadgeOverlap="false"
-          >notifications
+        <mat-icon matBadge="3"
+                  matBadgeColor="warn"
+                  matBadgeOverlap="false">notifications
         </mat-icon>
       </div>
 
+
       <div>
+
         <mat-icon [matMenuTriggerFor]="menu">expand_more</mat-icon>
         <mat-menu #menu="matMenu">
           <button mat-menu-item (click)="logout()">
@@ -60,17 +65,20 @@
           </button>
         </mat-menu>
       </div>
+
     </div>
   </div>
 
   <div class="home__body">
+
     <div class="home__body__sidebarLeft">
       <div class="inside">
         <div class="user-avatar">
-          <img alt="" mat-card-avatar src="{{ user?.avatar }}" />
-          <span class="name"
-            >{{ user?.firstName || "Indranil" }} {{ user?.lastName }}</span
-          >
+          <img
+            alt=""
+            mat-card-avatar
+            src="{{ user?.avatar }}">
+          <span class="name">{{ user?.firstName || 'Indranil'}} {{ user?.lastName }}</span>
         </div>
         <div>
           <mat-icon> local_hospital</mat-icon>
@@ -106,42 +114,40 @@
           <mat-icon class="see-more">expand_more</mat-icon>
           <span>See More</span>
         </div>
+
       </div>
     </div>
 
     <div class="home__body__contentMiddle">
+
       <div class="home__body__contentMiddle__top">
         <!--IMAGE CARDS-->
         <mat-card *ngFor="let i of images" class="image-card">
-          <img alt="bg" class="bg" src="{{ i }}" />
+          <img alt="bg"
+               class="bg" src="{{ i }}">
           <mat-card-content>
             <img
               alt="avatar"
-              class="avatar"
-              src="https://scontent.fdel8-1.fna.fbcdn.net/v/t1.0-1/cp0/p50x50/15078703_10211571832470683_2854551810050518303_n.jpg?_nc_cat=105&_nc_sid=7206a8&_nc_ohc=YSQBDLYrXHgAX_7KBWW&_nc_ht=scontent.fdel8-1.fna&oh=298837f1c1ebe1f884ce2525d31f39b1&oe=5F6F741A"
-            />
+              class="avatar" src="https://scontent.fdel8-1.fna.fbcdn.net/v/t1.0-1/cp0/p50x50/15078703_10211571832470683_2854551810050518303_n.jpg?_nc_cat=105&_nc_sid=7206a8&_nc_ohc=YSQBDLYrXHgAX_7KBWW&_nc_ht=scontent.fdel8-1.fna&oh=298837f1c1ebe1f884ce2525d31f39b1&oe=5F6F741A">
             <span class="card-name">Indranil Mukherjee</span>
           </mat-card-content>
         </mat-card>
+
       </div>
 
       <div class="home__body__contentMiddle__center">
         <mat-card class="post-message">
-          <mat-card-header
-            class="post-message-header"
-            style="padding-bottom: 20px; border-bottom: 1px solid lightgray"
-          >
-            <img alt="" mat-card-avatar [src]="user?.avatar" />
+          <mat-card-header class="post-message-header"
+                           style="padding-bottom: 20px; border-bottom: 1px solid lightgray;">
+            <img
+              alt=""
+              mat-card-avatar
+              [src]="user?.avatar">
             <form #form="ngForm" (ngSubmit)="postMessage(form)">
-              <input
-                class="on-your-mind"
-                name="message"
-                ngModel
-                placeholder="What's on your mind?"
-                type="text"
-              />
-              <button style="display: none" type="submit"></button>
+              <input class="on-your-mind" name="message" ngModel placeholder="What's on your mind?" type="text">
+              <button style="display: none;" type="submit"></button>
             </form>
+
           </mat-card-header>
           <mat-card-content class="card-body">
             <div>
@@ -164,9 +170,9 @@
         <!--Loop Through All Posts From Database and Display-->
         <mat-card *ngFor="let p of posts" class="posts">
           <mat-card-header class="posts__header">
-            <img alt="{{ p?.title }}" mat-card-avatar [src]="p?.avatar" />
+            <img alt="{{ p?.title }}" mat-card-avatar [src]="p?.avatar">
             <div class="posts__header__right">
-              <span>{{ p?.time?.seconds * 1000 | date: "shortTime" }}</span>
+              <span>{{ p?.time?.seconds * 1000 | date:'shortTime' }}</span>
               <h3>{{ p?.title }}</h3>
             </div>
           </mat-card-header>
@@ -174,13 +180,20 @@
             <p>{{ p?.message }}</p>
           </mat-card-content>
         </mat-card>
+
+
       </div>
+
+
     </div>
 
     <div class="home__body__feedRight">
       <div class="inside">
-        <img alt="feed" src="assets/feed.jpg" />
+        <img alt="feed" src="assets/feed.jpg">
       </div>
+
+
     </div>
+
   </div>
 </div>
